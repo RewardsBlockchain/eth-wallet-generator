@@ -1,7 +1,7 @@
 # Ethereum Wallet Generator
 
 ```
-git clone https://github.com/TundraFizz/Ethereum-Wallet-Generator
+git clone https://github.com/RewardsBlockchain/eth-wallet-generator/
 cd Ethereum-Wallet-Generator
 npm i
 npm start

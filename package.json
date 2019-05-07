@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Generates random Ethereum private/public keys, QR codes for them, and its address with an identicon",
   "main": "main.js",
-  "author": "Tundra Fizz",
+  "author": "Rewards.com",
   "license": "ISC",
   "dependencies": {
     "elliptic": "^6.4.0",
@@ -21,6 +21,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/TundraFizz/Ethereum-Wallet-Generator.git"
+    "url": "https://github.com/RewardsBlockchain/eth-wallet-generator"
   }
 }
