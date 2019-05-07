@@ -2,9 +2,9 @@
 
 ```
 git clone https://github.com/RewardsBlockchain/eth-wallet-generator/
-cd Ethereum-Wallet-Generator
+cd eth-wallet-generator
 npm i
-npm start
+npm run start
 ```
 
 A directory named `wallets` will be created when you first run this program. Inside there will be four files:
