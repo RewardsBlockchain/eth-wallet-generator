@@ -81,7 +81,7 @@ EthWallet.prototype.GetDataFromPrivateKey = function () {
         rl.question("Type in a 64-character hexadecimal string and hit enter\n", (answer) => {
             rl.close();
 
-            var buffHex = new Buffer(answer, "hex");
+            var buffHex = Buffer.from(answer, "hex");
             self.privateKeyBuffer = buffHex;
             self.privateKeyString = self.privateKeyBuffer.toString("hex");
 
@@ -145,16 +145,16 @@ EthWallet.prototype.GenerateWallet = function () {
     return new Promise((resolve) => {
         var self = this;
         try {
-        self.GetPrivateKey()
-            .then(() => self.GetEthAddress())
-            .then(() => self.GetQrCodes())
-            .then(() => self.GetIdenticon())
-            .then(() => self.GetKeystoreFile())
-            .then(() => {
-                console.log(`Wallets generated: ${self.walletCurrent}/${self.walletMax}`);
-                if (self.walletCurrent++ < self.walletMax)
-                    self.GenerateWallet();
-            });
+            self.GetPrivateKey()
+                .then(() => self.GetEthAddress())
+                .then(() => self.GetQrCodes())
+                .then(() => self.GetIdenticon())
+                .then(() => self.GetKeystoreFile())
+                .then(() => {
+                    console.log(`Wallets generated: ${self.walletCurrent}/${self.walletMax}`);
+                    if (self.walletCurrent++ < self.walletMax)
+                        self.GenerateWallet();
+                });
         } catch(e) {
             console.log(e);
         }
@@ -218,7 +218,7 @@ EthWallet.prototype.GetKeystoreFile = function () {
         var ciphertext = Buffer.concat([first, final]);
 
         var sliced = scryptKey.slice(16, 32);
-        sliced = new Buffer(sliced, "hex");
+        sliced = Buffer.from(sliced, "hex");
         var mac = ethUtil.sha3(Buffer.concat([scryptKey.slice(16, 32), Buffer.from(ciphertext, "hex")]))
 
         var hexCiphertext = ciphertext.toString("hex");
